@@ -1,0 +1,33 @@
+# Python/Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyi
+*.pyz
+*.pyw
+*.swp
+
+# Django configuration
+*.env
+.env.*
+local_settings.py
+db.sqlite3
+
+# Static files
+/staticfiles/
+/media/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs/
+
+# Dependency directories
+venv/
+env/
+env/
