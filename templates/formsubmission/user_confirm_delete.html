@@ -1,0 +1,31 @@
+{% extends "taskformsubmit/base.html" %}
+
+{% block title %}Confirm Deletion - Task Form Submit{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete the user profile for "{{ user.name }}"?</p>
+    <form method="post">
+      {% csrf_token %}
+      <button id="delete-btn" type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="{% url 'user_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  $('#delete-btn').on('click', function (click) {
+      $.ajax({
+        url: $(this).attr("href"),
+        type: "POST",
+        dataType: "json",
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRFToken": getCookie("csrftoken"),
+        }
+    });
+  });
+</script>
+{% endblock extra_scripts %}
