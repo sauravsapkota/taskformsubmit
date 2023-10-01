@@ -1,0 +1,18 @@
+#userProfile {
+    padding-bottom: 5rem;
+}
+
+/* Custom styling for undelete button */
+.undelete-button {
+    background-color: #28a745; /* Green color for success */
+    color: #fff; /* Text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Adjust padding for button size */
+    cursor: pointer; /* Show pointer cursor on hover */
+    /* Add any additional styling you want */
+}
+
+/* Style the button on hover */
+.undelete-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
