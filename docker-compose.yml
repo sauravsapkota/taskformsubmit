@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    container_name: taskformsubmit_dev
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file: .env
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - DJANGO_DB_HOST=db
+  db:
+    container_name: tfs_database
+    image: postgres:13.0-alpine
+    environment:
+      POSTGRES_DB: tfs_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
