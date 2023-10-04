@@ -1,5 +1,18 @@
 from django.db import models
 from django_countries.fields import CountryField
+from django.utils import timezone
+
+
+class UserProfileManager(models.Manager):
+    def get_all_profiles(self):
+        return self.only('name', 'gender', 'phone', 'email', 'address', 'nationality',
+                         'date_of_birth', 'education_background', 'preferred_contact').all()
+
+    def get_active_profiles(self):
+        return self.only('name', 'gender', 'phone', 'email', 'address', 'nationality',
+                         'date_of_birth', 'education_background', 'preferred_contact'
+                         ).filter(is_deleted=False)
+
 
 class UserProfile(models.Model):
     """
@@ -35,9 +48,24 @@ class UserProfile(models.Model):
     is_deleted = models.BooleanField(default=False, verbose_name='Is Deleted')
     deleted_at = models.DateTimeField(null=True, blank=True, verbose_name='Deleted At')
 
+    objects = UserProfileManager()
+
     class Meta:
         verbose_name = 'User Profile'
         verbose_name_plural = 'User Profiles'
+        ordering = ['-id']
 
     def __str__(self):
         return self.name
+
+    def mark_as_deleted(self):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
+        return self
+
+    def undelete_users(self):
+        self.is_deleted = False
+        self.deleted_at = timezone.now()
+        self.save()
+        return self
