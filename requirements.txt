@@ -1,3 +1,16 @@
 asgiref==3.7.2
+astroid==2.15.8
+dill==0.3.7
 Django==4.2.5
+django-countries==7.5.1
+isort==5.12.0
+lazy-object-proxy==1.9.0
+mccabe==0.7.0
+platformdirs==3.10.0
+psycopg2-binary==2.9.9
+pylint==2.17.6
+python-decouple==3.8
 sqlparse==0.4.4
+tomlkit==0.12.1
+typing_extensions==4.8.0
+wrapt==1.15.0
