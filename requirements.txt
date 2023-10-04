@@ -10,6 +10,7 @@ platformdirs==3.10.0
 psycopg2-binary==2.9.9
 pylint==2.17.6
 python-decouple==3.8
+pylint==2.17.6
 sqlparse==0.4.4
 tomlkit==0.12.1
 typing_extensions==4.8.0

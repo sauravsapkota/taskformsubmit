@@ -16,3 +16,88 @@
 .undelete-button:hover {
     background-color: #218838; /* Darker green on hover */
 }
+
+/* Apply styles to the errorlist class */
+.errorlist {
+  list-style-type: none;
+  padding: 0;
+  color: red;
+}
+
+/* Apply styles to the list items within the errorlist */
+.errorlist li {
+  margin-bottom: 5px;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  background: url(select2.png) right top no-repeat;
+  background-position: right -22px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx)  {
+   .select2-container--default .select2-search--dropdown .select2-search__field {
+      background-image: url(select2x2.png);
+      background-repeat: no-repeat;
+      background-size: 60px 40px;
+      background-position: 100% -21px;
+   }
+}
+
+/* Center-align the page title */
+h1.text-center {
+  margin-top: 20px;
+}
+
+/* Style the list group items */
+.list-group-item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  margin-top: 10px;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .list-group-item {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+/* Style the pagination links */
+.pagination {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination-number {
+    padding: 12px 17px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #6D85C7;
+}
+
+.pagination-number:hover,
+.pagination-current {
+    background-color: #3354AA;
+}
+
+.pagination-action {
+    margin: 0 2px;
+    display: flex;
+    padding: 1px 2px;
+    color: #fff;
+    font-size: 1.3em;
+    align-items: center;
+}
+
+.pagination-action:hover,
+.pagination-previous,
+.pagination-next {
+    color: #3354AA;
+}

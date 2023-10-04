@@ -8,15 +8,22 @@
     <h1>{% if form.instance.id %}Edit{% else %}Create{% endif %} User Profile</h1>
     <form id="userProfile" method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      {% for field in form %}
+      <p>
+          <div>{{ field.label_tag }}</div>
+          <div>
+              {{ field }}
+              {{ field.errors }}
+              {% if field.help_text %}
+              <img class="tooltip" title="{{ field.help_text }}" src="{{ MEDIA_URL }}images/icon_help.png">
+              {% endif %}
+          </div>
+      </p>
+      {% endfor %}
       <button type="submit" class="btn btn-primary">{% if form.instance.id %}Update{% else %}Create{% endif %}</button>
       <a href="{% url 'user_list' %}" class="btn btn-secondary">Cancel</a>
     </form>
 
   </div>
 {% endblock %}
-
-{% block extra_scripts %}
-    <link rel="stylesheet" href="{% static 'js/myScript.js' %}?v=1.0">
-{% endblock extra_scripts %}
 
